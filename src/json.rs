@@ -3,15 +3,17 @@ use rocket::serde::{json::Json, Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(crate = "rocket::serde")]
 pub struct Task {
-    name: String,
+    description: String,
     done: bool,
+    note: Option<String>,
 }
 
 #[get("/todo")]
 pub fn todo() -> Json<Task> {
     Json(Task {
-        name: "Hold talk på backend summit".to_string(),
+        description: "Hold talk på backend summit".to_string(),
         done: false,
+        note: None,
     })
 }
 
