@@ -1,3 +1,4 @@
+use rocket::response::status;
 use rocket::serde::{json::Json, Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -18,8 +19,8 @@ pub fn todo() -> Json<Task> {
 }
 
 #[post("/todo", data = "<task>")]
-pub fn new_todo(task: Json<Task>) -> Json<Task> {
+pub fn new_todo(task: Json<Task>) -> status::Accepted<Json<Task>> {
     //Do something interesting
     print!("{:?}", task);
-    task
+    status::Accepted(Some(task))
 }
