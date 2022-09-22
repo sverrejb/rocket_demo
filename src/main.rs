@@ -19,12 +19,18 @@ fn hello_nick(name: &str, nickname: &str) -> String {
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/hello", routes![hello_age, hello_nick])
+    rocket::build()
+    //hello world
+    // .mount("/hello", routes![hello_age, hello_nick])
+    // error handling:
     //.register("/", catchers![catchers::not_found, catchers::bad_request])
-    //.mount("/math", routes![math::add])
+    // file server:
     //.mount("/public", rocket::fs::FileServer::from("static/"))
+    // request guards:
     //.mount("/sensitive", routes![secrets::sensitive])
+    // JSON:
     //.mount("/json", routes![json::todo, json::new_todo])
+    // Templating
     //.attach(Template::fairing())
     //.mount("/template", routes![templating::hello])
 }
