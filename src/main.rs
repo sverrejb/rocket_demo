@@ -3,7 +3,6 @@ extern crate rocket;
 use rocket_dyn_templates::Template;
 mod catchers;
 mod json;
-mod math;
 mod secrets;
 mod templating;
 
@@ -25,7 +24,7 @@ fn rocket() -> _ {
     // error handling:
     //.register("/", catchers![catchers::not_found, catchers::bad_request])
     // file server:
-    //.mount("/public", rocket::fs::FileServer::from("static/"))
+    // .mount("/public", rocket::fs::FileServer::from("static/"))
     // request guards:
     //.mount("/sensitive", routes![secrets::sensitive])
     // JSON:
